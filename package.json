@@ -1,0 +1,21 @@
+{
+  "name": "leisure",
+  "version": "0.0.1",
+  "description": "Static website builder",
+  "main": "bin/index.js",
+  "scripts": {
+    "lint": "eslint src/*",
+    "test": "jest",
+    "test:watch": "jest --watch test"
+  },
+  "keywords": [],
+  "author": "zhikiri <zhikiri.dev@gmail.com>",
+  "license": "MIT",
+  "bin": "./bin/index.js",
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "jest": "^27.0.2"
+  }
+}
