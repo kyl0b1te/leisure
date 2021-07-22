@@ -3,7 +3,6 @@ const fs = require('fs/promises');
 const { S_IROTH } = require('constants');
 
 const render = require('./render');
-const { stdout } = require('../cli');
 
 /**
  * Verify passed content path and return website pages folder path
@@ -92,7 +91,7 @@ const getPageFiles = async (pagesPath) => {
  * @param {string} outputPath website build folder path
  * @returns {array} list of website page routes
  */
-const buildPages = (pages, outputPath) => {
+const buildPages = (pages, outputPath, stdout) => {
   const builds = pages.map(async (page) => {
     const html = await render(page);
 
