@@ -2,6 +2,7 @@ const { getFlagValue, stdout } = require('./cli');
 
 const pkg = require('../package.json');
 const build = require('../src/build');
+const Server = require('../src/serve');
 
 const commands = {};
 
@@ -28,5 +29,11 @@ addCommand(async (argument, flags) => {
 
   await build(argument, website, { outputPath, staticContentPath, stdout });
 }, 'build');
+
+addCommand((argument, flags) => {
+  const port = getFlagValue(flags, '-p', null);
+
+  new Server(argument, stdout, port).start();
+}, 'serve');
 
 module.exports = commands;
