@@ -82,6 +82,11 @@ describe('bin / cli', () => {
       const res = cli.getFlagValue([['baz', 99]], 'foo');
       expect(res).toEqual(null);
     });
+
+    it('should return a multiple values for flag duplication', () => {
+      const res = cli.getFlagValue([['a', 1], ['b', 2], ['a', 3]], 'a');
+      expect(res).toEqual([1, 3]);
+    });
   });
 
   describe('stdout', () => {

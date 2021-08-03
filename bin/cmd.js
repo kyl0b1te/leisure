@@ -24,8 +24,9 @@ addCommand(() => {
 addCommand(async (argument, flags) => {
   const website = getFlagValue(flags, '-w', null);
   const outputPath = getFlagValue(flags, '-o', null);
+  const staticContentPath = getFlagValue(flags, '-c', null);
 
-  await build(argument, website, { outputPath, stdout });
+  await build(argument, website, { outputPath, staticContentPath, stdout });
 }, 'build');
 
 module.exports = commands;

@@ -59,8 +59,18 @@ const getExecCommand = () => {
  * @returns {*} execution flag value or passed default value
  */
 const getFlagValue = (flags, key, defaultValue = null) => {
-  const foundFlag = flags.find(([flag]) => flag === key);
-  return foundFlag ? foundFlag[1] : defaultValue;
+  const values = flags.reduce((acc, [flag, value]) => {
+    if (flag === key) {
+      acc.push(value);
+    }
+    return acc;
+  }, []);
+
+  if (values.length === 1) {
+    return values[0];
+  }
+
+  return values.length ? values : defaultValue;
 };
 
 /**
