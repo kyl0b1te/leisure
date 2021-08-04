@@ -14,6 +14,10 @@ const SITEMAP_LINK_TEMPLATE = `
   <lastmod>%s</lastmod>
 </url>`;
 
+/**
+ * Construct sitemap route last modification string from the current date
+ * @returns {string} formatted last modification date string
+ */
 const getLastMod = () => {
   const date = new Date(Date.now());
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -21,11 +25,25 @@ const getLastMod = () => {
   return `${date.getFullYear()}-${month}-${day}`;
 };
 
+/**
+ * Get list of routes for store in a sitemap xml file
+ * @param {string} domain website domain name (starts with protocol)
+ * @param {array} routes list of website routes
+ * @param {string} lastMod string routes modification date
+ * @returns {array} list of routes prepared for storing in sitemap
+ */
 const getSitemapLinks = (domain, routes, lastMod) => routes.map((route) => {
   const link = new URL(route, domain);
   return format(SITEMAP_LINK_TEMPLATE, `${link.href}`, lastMod);
 });
 
+/**
+ * Generate and save sitemap information into the file
+ * @param {string} domain website domain name (starts with protocol)
+ * @param {array} routes list of website routes
+ * @param {string} output sitemap file location path
+ * @returns {Promise} result of sitemap information save operation
+ */
 const build = (domain, routes, output) => {
   const links = getSitemapLinks(domain, routes, getLastMod());
   const sitemap = format(SITEMAP_DOC_TEMPLATE, links.join(''));
