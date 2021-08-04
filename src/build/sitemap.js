@@ -17,7 +17,7 @@ const SITEMAP_LINK_TEMPLATE = `
 const getLastMod = () => {
   const date = new Date(Date.now());
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date.getDate().toString().padStart(0, 2);
+  const day = date.getDate().toString().padStart(2, '0');
   return `${date.getFullYear()}-${month}-${day}`;
 };
 

@@ -24,7 +24,7 @@ describe('bin', () => {
 
   setArgv = (...args) => process.argv = ['/usr/local/node', 'leisure', ...args];
 
-  it('should print version informaton', () => {
+  it('should print version information', () => {
     setArgv('version');
     require('../../bin/');
     expect(process.stdout.write).toHaveBeenCalledWith('v0.0.1\n');
@@ -39,7 +39,7 @@ describe('bin', () => {
     expect(call).toEqual(expect.stringContaining('List of commands:'));
   });
 
-  it('should print help details if no commans has been passed', () => {
+  it('should print help details if no commands has been passed', () => {
     setArgv('');
     require('../../bin/');
     expect(process.stdout.write).toHaveBeenCalled();
@@ -48,7 +48,7 @@ describe('bin', () => {
     expect(call).toEqual(expect.stringContaining('List of commands:'));
   });
 
-  it('should print help details if no commans has been passed', () => {
+  it('should print help details if no commands has been passed', () => {
     setArgv('failure');
     require('../../bin/');
     expect(process.stdout.write).not.toHaveBeenCalled();

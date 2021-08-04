@@ -1,6 +1,7 @@
 const { format } = require('util');
 
 const buildWebsite = require('./build');
+const Server = require('./server');
 
 const stdout = (template, args) => {
   let params = [];
@@ -17,4 +18,5 @@ module.exports = {
   build: (contentPath, websiteURL, options = {}) => {
     buildWebsite(contentPath, websiteURL, { ...options, stdout });
   },
+  server: (contentPath, options = {}) => new Server(contentPath, stdout, options),
 };

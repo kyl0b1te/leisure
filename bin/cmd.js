@@ -2,7 +2,7 @@ const { getFlagValue, stdout } = require('./cli');
 
 const pkg = require('../package.json');
 const build = require('../src/build');
-const Server = require('../src/serve');
+const Server = require('../src/server');
 
 const commands = {};
 
