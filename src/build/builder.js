@@ -124,7 +124,6 @@ const cleanUp = async (outputPath) => {
 module.exports = {
   getPagesPath,
   getPageFiles,
-  getRouteFromFilePath,
   buildPages,
   cleanUp,
 };

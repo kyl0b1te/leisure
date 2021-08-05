@@ -6,7 +6,7 @@ jest.mock('fs/promises');
 const DOMAIN = 'http://www.example.com';
 const ROUTES = ['/foo', '/baz'];
 
-describe('src / sitemap', () => {
+describe('build / sitemap', () => {
   // 2021-08-04
   Date.now = jest.fn().mockReturnValue(1628064926774);
 
